@@ -32,7 +32,8 @@ piezas** que cualquier proyecto va a necesitar, y con un plan para las 20 horas.
 | 6 | Voz (opcional) | Agente de ElevenLabs que llama a una tool tuya | Tiene premio propio y luce en vivo |
 
 Material base: documentación de MCP (modelcontextprotocol.io) y su SDK de
-TypeScript, la guía de tool use de la API de Claude, el Agent SDK de Claude y
+TypeScript (la v2, `@modelcontextprotocol/server` y `@modelcontextprotocol/client`;
+la mayoría de los ejemplos en internet son de la v1, `@modelcontextprotocol/sdk`), la guía de tool use de la API de Claude, el Agent SDK de Claude y
 la documentación de agentes de ElevenLabs.
 
 ## Calendario
@@ -47,6 +48,14 @@ la documentación de agentes de ElevenLabs.
 | **Sáb 28 – dom 29** | **Mini-hackathon de ensayo, 8 h cronometradas** | Una idea de [IDEAS.md](IDEAS.md) de punta a punta. Retro: qué te frenó |
 | **Lun 30 nov – mié 2 dic** | Corregir lo que frenó y armar equipo | Roles definidos, guion de demo, plantilla de pitch. Activar la prueba de Flyra el 1 de diciembre |
 | **Jue 3 – vie 4 dic** | Logística y descanso | Checklist de abajo completo. Nada de temas nuevos |
+
+### Avance
+
+- **20 nov:** servidor MCP local por stdio con 3 tools (indicadores, datos.gob.cl
+  y conversión CLP↔UF), probado con un cliente propio y con MCP Inspector y
+  conectado a Claude Code por `.mcp.json`:
+  [spikes/01-mcp-basico](spikes/01-mcp-basico/). Falta la versión remota por
+  HTTP en Railway.
 
 ## Checklist antes del evento
 

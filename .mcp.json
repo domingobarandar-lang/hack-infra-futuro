@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "mcp-basico": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["spikes/01-mcp-basico/server.js"]
+    }
+  }
+}
