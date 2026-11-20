@@ -54,8 +54,11 @@ la documentación de agentes de ElevenLabs.
 - **20 nov:** servidor MCP local por stdio con 3 tools (indicadores, datos.gob.cl
   y conversión CLP↔UF), probado con un cliente propio, con MCP Inspector y
   desde Claude Code, que lo carga por `.mcp.json` y usa sus 3 tools:
-  [spikes/01-mcp-basico](spikes/01-mcp-basico/). Falta la versión remota por
-  HTTP en Railway.
+  [spikes/01-mcp-basico](spikes/01-mcp-basico/).
+- **20 nov:** el mismo servidor por HTTP con token, desplegado en Railway
+  (proyecto `hack-infra-spikes`, modo serverless) y usado desde Claude Code:
+  [spikes/02-mcp-http](spikes/02-mcp-http/). Siguiente: un ciclo de agente
+  propio con la API de Claude (prioridad 2).
 
 ## Checklist antes del evento
 
