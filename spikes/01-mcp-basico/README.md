@@ -50,7 +50,10 @@ El repo trae un `.mcp.json` en la raíz (ámbito *proyecto*):
    MCP se cargan al iniciar la sesión, así que una sesión abierta antes no los ve.
 2. La primera vez, Claude Code pide **aprobar** el servidor, porque un
    `.mcp.json` ejecuta código en tu máquina. Mientras no lo apruebes queda en
-   `⏸ Pending approval`.
+   `⏸ Pending approval`. Aquí lo aprobamos con
+   `{ "enabledMcpjsonServers": ["mcp-basico"] }` en
+   `.claude/settings.local.json`, que es tu configuración local y no se sube al
+   repo.
 3. Pregunta algo como «¿cuánto vale hoy la UF?». Las tools aparecen con el
    nombre `mcp__mcp-basico__<tool>`.
 
@@ -144,7 +147,21 @@ ejemplo, pedir confirmación).
   2025-12-01. Las tools devuelven siempre la `fecha` junto al valor para que se
   note.
 - **Claude Code ve el `.mcp.json`, pero lo deja en «Pending approval»** hasta que
-  lo apruebes. Es una protección, no un error.
+  lo apruebes. Es una protección, no un error. Después de aprobarlo en
+  `.claude/settings.local.json`, una sesión nueva de la app cargó las 3 tools y
+  las usó con datos reales (UF del día, 1.500.000 CLP = 36,2572 UF y una
+  búsqueda en datos.gob.cl). El `claude mcp get` del CLI suelto siguió diciendo
+  «Pending approval», probablemente porque esa carpeta no está marcada como
+  confiable para el CLI.
+- **El buscador de datos.gob.cl tiene relevancia débil.** En esa prueba,
+  «transporte público» trajo primero dos copias de un dataset que no habla de
+  transporte: CKAN busca en todos los campos y el catálogo tiene duplicados. Con
+  comillas (`"transporte público"`) o con `title:transporte` los resultados son
+  pertinentes, así que eso quedó escrito en la descripción de la tool. **La
+  descripción es la forma de enseñarle al modelo a usar bien un sistema real.**
+- **Las tildes en Git Bash.** `curl` desde Git Bash mandó mal la «ú» y la
+  búsqueda devolvió 0 resultados; desde Node, que codifica en UTF-8, devuelve
+  92. Las APIs con texto en español conviene probarlas desde Node.
 - **El `claude.exe` de la app no sirve como CLI suelto**: conecta el servidor y
   lista sus tools (`--mcp-config .mcp.json` muestra `mcp-basico: connected`),
   pero al llamar al modelo falla por login. Para usar el CLI fuera de la app hay

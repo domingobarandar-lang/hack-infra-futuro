@@ -52,8 +52,8 @@ la documentación de agentes de ElevenLabs.
 ### Avance
 
 - **20 nov:** servidor MCP local por stdio con 3 tools (indicadores, datos.gob.cl
-  y conversión CLP↔UF), probado con un cliente propio y con MCP Inspector y
-  conectado a Claude Code por `.mcp.json`:
+  y conversión CLP↔UF), probado con un cliente propio, con MCP Inspector y
+  desde Claude Code, que lo carga por `.mcp.json` y usa sus 3 tools:
   [spikes/01-mcp-basico](spikes/01-mcp-basico/). Falta la versión remota por
   HTTP en Railway.
 

@@ -73,9 +73,10 @@ function crearServidor() {
   server.registerTool('buscar_datasets', {
     title: 'Buscar datos abiertos del Estado',
     description: 'Busca conjuntos de datos en datos.gob.cl, el catálogo de datos abiertos del Estado de Chile. '
-      + 'Devuelve título, institución, descripción y archivos descargables.',
+      + 'Devuelve título, institución, descripción y archivos descargables. La relevancia del buscador es débil: '
+      + 'para una frase exacta usa comillas ("transporte público") y para buscar solo en títulos usa title:palabra.',
     inputSchema: z.object({
-      consulta: z.string().min(2).describe('Palabras a buscar, por ejemplo "licitaciones" o "calidad del aire"'),
+      consulta: z.string().min(2).describe('Búsqueda con sintaxis Solr, por ejemplo licitaciones, "calidad del aire" o title:transporte'),
       max: z.number().int().min(1).max(20).default(5).describe('Cuántos resultados devolver (1 a 20)'),
     }),
     annotations: SOLO_LECTURA,
