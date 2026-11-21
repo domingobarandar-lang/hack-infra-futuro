@@ -57,8 +57,11 @@ la documentación de agentes de ElevenLabs.
   [spikes/01-mcp-basico](spikes/01-mcp-basico/).
 - **20 nov:** el mismo servidor por HTTP con token, desplegado en Railway
   (proyecto `hack-infra-spikes`, modo serverless) y usado desde Claude Code:
-  [spikes/02-mcp-http](spikes/02-mcp-http/). Siguiente: un ciclo de agente
-  propio con la API de Claude (prioridad 2).
+  [spikes/02-mcp-http](spikes/02-mcp-http/).
+- **20 nov:** ciclo de agente propio con Gemini (`gemini-3.8-flash`) que usa las
+  tools MCP, local y remoto, con manejo de errores, tope de vueltas y auditoría:
+  [spikes/03-agente](spikes/03-agente/). Siguiente: patrones de producción
+  (prioridad 3).
 
 ## Checklist antes del evento
 
